@@ -34,7 +34,7 @@ def get_joke():
     if request.method == 'GET':
         return jsonify(dict(status='ok', joke=jokes.get('value')[0]))
     elif request.method == 'POST':
-        limit = request.args.get('limit', 1)
+        limit = int(request.args.get('limit', 1))
         category = request.args.get('category', False)
         if limit > jl:  limit = jl
         if category == False:
