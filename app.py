@@ -1,6 +1,6 @@
 import json
 from random import SystemRandom as Random
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_autodoc.autodoc import Autodoc
 import os
 try:    jokes = json.load(open('jn.json'))
