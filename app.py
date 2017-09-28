@@ -16,7 +16,7 @@ def health():
     """Health check entrypoint"""
     jl = len(jokes.get('value'))
     if jl > 1:
-        return jsonify(dict(status='ok', message='%s entries in joke book' % len(jl)))
+        return jsonify(dict(status='ok', message='%s entries in joke book' % jl))
     # fail if not true
 
 @app.route('/', methods=['GET'])
