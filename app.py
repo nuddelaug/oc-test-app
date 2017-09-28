@@ -8,10 +8,10 @@ except: jokes = {'value': ['Error opening database']}
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-Autodoc(app)
+auto = Autodoc(app)
 
 @app.route('/health/', methods=['GET'])
-@app.doc()
+@auto.doc()
 def health():
     """Health check entrypoint"""
     jl = len(jokes.get('value'))
@@ -27,7 +27,7 @@ def documentation():
                      author='Michael Lang <Michael.Lang@ctbto.org>',)
 
 @app.route('/joke/random/', methods=['GET', 'POST'])
-@app.doc()
+@auto.doc()
 def get_joke():
     Random().shuffle(jokes.get('value'))
     jl = len(jokes.get('value'))
