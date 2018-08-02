@@ -22,7 +22,7 @@ def health():
 @app.route('/', methods=['GET'])
 def documentation():
     """Documentation access"""
-    return redirect(url_for("/joke/random/"))
+    return redirect(url_for("get_joke"))
     return auto.html(
                      title='API endpoint documentation',
                      author='Michael Lang <Michael.Lang@ctbto.org>',)
