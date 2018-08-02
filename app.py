@@ -8,7 +8,7 @@ except: jokes = {'value': ['Error opening database']}
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-auto = Autodoc(app)
+#auto = Autodoc(app)
 
 @app.route('/health/', methods=['GET'])
 #@auto.doc()
