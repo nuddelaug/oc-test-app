@@ -1,6 +1,6 @@
 import json
 from random import SystemRandom as Random
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, url_for
 #from flask_autodoc.autodoc import Autodoc
 import os
 try:    jokes = json.load(open('jn.json'))
@@ -22,6 +22,7 @@ def health():
 @app.route('/', methods=['GET'])
 def documentation():
     """Documentation access"""
+    return redirect(url_for("/joke/random/"))
     return auto.html(
                      title='API endpoint documentation',
                      author='Michael Lang <Michael.Lang@ctbto.org>',)
