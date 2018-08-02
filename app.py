@@ -1,7 +1,7 @@
 import json
 from random import SystemRandom as Random
 from flask import Flask, jsonify, request
-from flask_autodoc.autodoc import Autodoc
+#from flask_autodoc.autodoc import Autodoc
 import os
 try:    jokes = json.load(open('jn.json'))
 except: jokes = {'value': ['Error opening database']}
@@ -11,7 +11,7 @@ app.secret_key = os.urandom(24)
 auto = Autodoc(app)
 
 @app.route('/health/', methods=['GET'])
-@auto.doc()
+#@auto.doc()
 def health():
     """Health check entrypoint"""
     jl = len(jokes.get('value'))
@@ -27,7 +27,7 @@ def documentation():
                      author='Michael Lang <Michael.Lang@ctbto.org>',)
 
 @app.route('/joke/random/', methods=['GET', 'POST'])
-@auto.doc()
+#@auto.doc()
 def get_joke():
     Random().shuffle(jokes.get('value'))
     jl = len(jokes.get('value'))
